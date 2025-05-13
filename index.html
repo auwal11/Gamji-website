@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gamji Global Concept</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
@@ -72,13 +72,15 @@
     </section>
 
     <section class="form-section">
-      <h2>Support</h2>
-      <p>Have a question or need help? Enter your email below and we will contact you.</p>
-      <form>
-        <input type="email" placeholder="Enter your email">
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+  <h2>Support</h2>
+  <p>Have a question or need help? Enter your email below and we will contact you.</p>
+  <form action="https://formsubmit.co/globalconceptgamji@gmail.com" method="POST">
+    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="email" name="email" placeholder="Enter your email" required>
+    <button type="submit">Submit</button>
+  </form>
+</section>
   </main>
 
   <footer>
@@ -87,5 +89,12 @@
     <p>Address: No. 50 Palace Way, Jalingo, Taraba State</p>
     <p><a href="https://whatsapp.com/dl/">Chat with us on WhatsApp</a></p>
   </footer>
+
+  <script>
+    document.getElementById("support-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("Thanks! We'll get back to you soon.");
+    });
+  </script>
 </body>
 </html>
