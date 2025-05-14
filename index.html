@@ -1,23 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gamji Global Concept</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-    header { background-color: #ffc600; padding: 20px; text-align: center; }
-    header img { height: 70px; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; scroll-behavior: smooth; }
+    header { background-color: #003366; padding: 20px; text-align: center; color: white; }
+    header h1, header p { margin: 0; }
+    nav { background: #002244; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; color: white; }
+    nav .menu { display: none; flex-direction: column; gap: 10px; }
+    nav a { color: #ffc600; text-decoration: none; margin-left: 15px; }
+    nav .toggle { cursor: pointer; display: block; }
     main { padding: 20px; }
-    section { margin-bottom: 40px; background: gold; padding: 20px; border-radius: 10px; }
+    section { margin-bottom: 40px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
     h2 { color: #003366; }
     footer { background: #003366; color: gold; text-align: center; padding: 15px; }
     a { color: #ffc600; text-decoration: none; }
-    .form-section input, .form-section button {
+    .form-section input, .form-section textarea, .form-section select, .form-section button {
       padding: 10px;
       margin-top: 10px;
       width: 100%;
       box-sizing: border-box;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
     .form-section button {
       background-color: #003366;
@@ -25,163 +30,104 @@
       border: none;
       cursor: pointer;
     }
+    .success-message { display: none; color: green; margin-top: 10px; }@media (max-width: 768px) {
+  nav .menu { display: flex; }
+  nav .links { display: none; flex-direction: column; }
+  nav.active .links { display: flex; }
+}
+
   </style>
 </head>
 <body>
   <header>
     <h1>Gamji Global Concept</h1>
-<p>Telecom, Identity & Financial Solutions</p>
-  </header>
-
-  <main>
-    <section>
+    <p>Telecom, Identity & Financial Solutions</p>
+  </header>  <nav>
+    <div class="toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰ Menu</div>
+    <div class="links">
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#vision">Vision</a>
+      <a href="#mission">Mission</a>
+      <a href="#global">Global Presence</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>  <main>
+    <section id="about">
       <h2>About Us</h2>
-      <p>Gamji Global Concept is a forward,thinking, customer,focused company delivering reliable services in the areas of telecommunications, digital identity, and financial exchange. Established with a strong vision to bridge the gap between people and essential digital services, we have grown into a trusted name in SIM registration, NIN enrollment, KYC onboarding, and Bureau de Change operations.
+      <p>Gamji Global Concept is a forward-thinking company delivering reliable services in telecommunications, digital identity, and financial exchange. Our strategic partnership with MTN Nigeria supports KYC verification, SIM activations, and NIN enrollment. Our Bureau de Change offers trustworthy and competitive foreign exchange services. We combine regulatory compliance, ethical standards, and innovation to serve customers across Nigeria and beyond.</p>
+    </section><section id="services">
+  <h2>Our Services</h2>
+  <ul>
+    <li><strong>General SIM Solutions</strong> – SIM activations, swaps, upgrades, and troubleshooting.</li>
+    <li><strong>NIN Enrollment</strong> – Official biometric and data capture for national identity.</li>
+    <li><strong>KYC Onboarding</strong> – Verified identity checks in collaboration with MTN and Sidrachain.</li>
+    <li><strong>Bureau de Change</strong> – Trusted currency exchange for USD, EUR, GBP, CFA, etc.</li>
+    <li><strong>Closed User Group (CUG)</strong> – Discounted internal calling and data sharing for teams and businesses.</li>
+    <li><strong>Laptop and Accessories Supply</strong> – Sales of branded laptops and essential computing tools.</li>
+  </ul>
+</section>
 
-At Gamji Global Concept, we believe access to communication and financial tools is a right, not a privilege. That’s why we’ve positioned ourselves at the intersection of technology, regulatory compliance, and customer satisfaction. With a passionate team and certified processes, we serve thousands of individuals and businesses who depend on us for secure, compliant, and efficient service delivery.
+<section id="vision">
+  <h2>Our Vision</h2>
+  <p>To be a trusted leader in telecom, digital identity, and currency exchange solutions—connecting people and businesses through secure and innovative services.</p>
+</section>
 
-We are proud of our strategic partnership with MTN Nigeria, through which we support telecom users with seamless KYC verification, SIM activation (both new and welcome-back), and identity registration services. In line with Nigeria’s national identity goals, we also play an active role in capturing and submitting NIN data for enrollment and updates.
+<section id="mission">
+  <h2>Our Mission</h2>
+  <p>We aim to deliver fast, secure, and reliable services that support connectivity, identity, and global commerce through partnerships, innovation, and customer satisfaction.</p>
+</section>
 
-Our Bureau de Change arm further extends our value by offering competitive foreign exchange services to individuals, travelers, and business clients. With a focus on transparency and integrity, we help our clients manage currency transactions smoothly and confidently.
+<section id="global">
+  <h2>Global Presence</h2>
+  <p>While based in Nigeria, we maintain a global outlook, extending services to diaspora communities, travelers, and international partners through digital platforms and partnerships.</p>
+</section>
 
-What Sets Us Apart:
+<section id="contact" class="form-section">
+  <h2>Contact Us</h2>
+  <p>Fill this form to reach out to us directly. We’ll respond shortly.</p>
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="text" name="phone" placeholder="Phone Number" required>
+    <input type="email" name="email" placeholder="Email Address">
+    <select name="inquiry">
+      <option value="sim-registration">SIM Registration</option>
+      <option value="nin-enrollment">NIN Enrollment</option>
+      <option value="kyc-verification">KYC Verification</option>
+      <option value="currency-exchange">Currency Exchange</option>
+      <option value="general-inquiry">General Inquiry</option>
+    </select>
+    <textarea name="message" placeholder="Your Message" rows="4"></textarea>
+    <button type="submit">Send Message</button>
+    <p class="success-message" id="success">Message sent successfully!</p>
+  </form>
+</section>
 
-Regulatory compliance and ethical standards in every transaction
-
-A knowledgeable team with hands-on experience in telecom and finance
-
-Commitment to innovation and community impact
-
-Strong operational network for both urban and underserved areas
-
-Trusted partnerships with national institutions and private stakeholders
-
-
-As we expand our services and digital reach, we remain focused on our core values: Integrity, Efficiency, Accessibility, and Innovation. Whether you're looking for telecom support, financial exchange, or digital identity services, Gamji Global Concept is your dependable partner.</p>
-    </section>
-
-    <section>
-      <h2>Our Services</h2>
-      <ul>
-        <li><strong>General SIM Solutions:</strong>General SIM solutions encompass a wide range of mobile communication services aimed at providing convenience and security for users. These include SIM card activation, replacement (SIM swap), troubleshooting connectivity issues, upgrading to 4G/5G networks, and recovering lost contacts or numbers. Service providers also offer guidance on managing SIM lock issues and porting numbers across networks. With an increasing focus on security and digital identity, general SIM support ensures users remain connected with reliable and efficient mobile services. </li>
-        <li><strong>Bureau de Change:</strong>Our Bureau de Change offers a trusted and professional platform for individuals, travelers, businesses, and organizations seeking reliable foreign exchange services. With a reputation built on transparency, security, and integrity, we provide swift currency conversion for a wide range of global currencies including US Dollars (USD), Euros (EUR), British Pounds (GBP), CFA, and others.
-
-Whether you are planning a trip abroad, conducting international business, or receiving foreign remittances, our services are designed to meet your needs with competitive exchange rates and efficient processing. We understand the importance of speed and accuracy in currency exchange, which is why we ensure transactions are completed promptly and securely.
-
-In addition to currency exchange, we also offer related financial services such as:
-
-Bulk Exchange Solutions for corporate clients and importers
-
-Cash Pick-up and Delivery Options (where permitted)
-
-Cross-border Transaction Guidance
-
-Support for International Payments & Settlements
-
-
-Our Bureau de Change operates in full compliance with financial regulations and is licensed by the appropriate monetary authorities. We uphold anti-money laundering (AML) and Know Your Customer (KYC) protocols, ensuring that every transaction is safe, legal, and transparent.
-
-Why Choose Us?
-
-Competitive and transparent exchange rates
-
-Professional and discreet service
-
-Fast transaction processing
-
-Secure and customer-friendly environment
-
-Strong track record of reliability and compliance
-
-
-At our Bureau de Change, we go beyond simple money exchange ,we provide peace of mind and financial confidence. Whether you're exchanging small sums or conducting large transactions, your money is in safe hands with us.
- </li>
-        <li><strong>Online Registration:</strong> General SIM solutions encompass a wide range of mobile communication services aimed at providing convenience and security for users. These include SIM card activation, replacement (SIM swap), troubleshooting connectivity issues, upgrading to 4G/5G networks, and recovering lost contacts or numbers. Service providers also offer guidance on managing SIM lock issues and porting numbers across networks. With an increasing focus on security and digital identity, general SIM support ensures users remain connected with reliable and efficient mobile services.
-
-</li>
-        <li><strong>NIN Enrollment:</strong> The National Identification Number (NIN) enrollment is a critical government-mandated process for identity verification and national planning. It involves collecting biometric and demographic data such as fingerprints, photographs, date of birth, and residential address. This number is essential for accessing various services like SIM card registration, banking, public service benefits, and more. Proper enrollment ensures an individual’s information is securely stored and linked across governmental and commercial platforms, strengthening national identity and reducing fraud.
-</li>
-        <li><strong>CUG:</strong> Closed User Group (CUG) services are designed for organizations, companies, and groups that require frequent communication among their members. It allows members to make unlimited or discounted calls and send SMS within the group. CUGs are especially beneficial for teams, departments, and corporate staff, promoting seamless internal communication while saving costs. These plans can also include shared data bundles and short codes for faster communication, improving productivity and collaboration within the group.
-</li>
-        <li><strong>Laptop and Supply:</strong<We specialize in the supply and distribution of high-quality laptops and accessories to meet both personal and business needs. Whether you’re looking for a powerful system for office work, a student-friendly device for academic use, or a durable laptop for field operations, we offer reliable options at competitive prices. Our inventory includes top brands and a wide range of specifications to suit every budget.
-
-In addition to laptop sales, we also provide essential accessories such as chargers, bags, external hard drives, printers, and software installations. As a trusted dealer, we ensure all our products are genuine, and we offer after-sales support, including warranty services, system setup, and technical assistance. Our goal is to help customers make the right tech investment with ease, confidence, and ongoing support.> </ul>
-    </section>
-
-    <section>
-      <h2> Partnership with SidraChain </h2>
-      <p>The partnership KYC (Know Your Customer) support with Sidrachain signifies a commitment to secure, blockchain-based identity verification. Through this collaboration, customer identities are validated using decentralized technology, which increases transparency, reduces fraud, and speeds up onboarding processes. Sidrachain’s platform provides tamper-proof recordkeeping, which helps organizations comply with regulatory standards while protecting user data. This support service includes onboarding assistance, documentation verification, and integration with business platforms, creating a trusted environment for digital transactions and partnerships.
-</p>
-    </section>
-
-    <section>
-      <h2>Our Vision</h2>
-      <p>At Gamji Global Concept, our vision is to be a trusted leader in telecom, digital identity, and currency exchange solutions—connecting people, businesses, and opportunities through secure and innovative services. We aspire to create a world where everyone has easy and safe access to communication and financial empowerment, regardless of their location.
-</p>
-    </section>
-
-    <section>
-      <h2>Our Mission</h2>
-      <p>Our mission is to provide fast, secure, and reliable services that support connectivity, identity verification, and global currency exchange. We are dedicated to:
-
-Delivering efficient SIM registration, welcome-back services, and KYC onboarding
-
-Supporting national identity enrollment and secure digital access
-
-Offering dependable Bureau de Change services with competitive rates
-
-Partnering with leading institutions like MTN to uphold security and compliance
-
-Extending our services to underserved communities through innovation and trust
-
-
-Every service we provide is built around customer satisfaction, regulatory integrity, and digital excellence.</p>
-    </section>
-
-    <section>
-      <h2>Global Presence</h2>
-      <p>Though proudly Nigerian, Gamji Global Concept is growing with a global mindset. Our partnerships, especially with MTN and other platforms, allow us to serve clients across regions—supporting diaspora communities, travelers, and international partners. We combine local expertise with global standards to ensure every client experiences world-class service, wherever they are.</p>
-    </section>
-
-      <section id="kyc">
-    <h2>Need Help or Have a Question?</h2>
-    <p>If you need help with any of our services or want to make an inquiry, kindly fill out the form below and we'll get back to you as soon as possible.</p>
-    <form action="mailto:globalconceptgamji@gmail.com" method="post" enctype="text/plain">
-      <label for="fullname">Full Name:</label>
-      <input type="text" id="fullname" name="Full Name" required>
-
-      <label for="phone">Phone Number:</label>
-      <input type="text" id="phone" name="Phone Number" required>
-
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="Email">
-
-      <label for="service">Service Inquiry:</label>
-      <select id="service" name="Service Inquiry">
-        <option value="sim-registration">SIM Registration</option>
-        <option value="nin-enrollment">NIN Enrollment</option>
-        <option value="kyc-verification">KYC Verification</option>
-        <option value="currency-exchange">Currency Exchange</option>
-        <option value="general-inquiry">General Inquiry</option>
-      </select>
-
-      <label for="message">Your Message:</label>
-      <textarea id="message" name="Message" rows="4"></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-  </main>
-
-  <footer>
+  </main>  <footer>
     <p>Email: globalconceptgamji@gmail.com</p>
-    <p>Phone: +2348068955522, 
-                       +2347045648248</p>
+    <p>Phone: +2348068955522, +2347045648248</p>
     <p>Address: No. 50 Palace Way, Jalingo, Taraba State</p>
     <a class="whatsapp-link" href="https://wa.me/2347045648248" target="_blank">Chat with us on WhatsApp</a>
-    </p>
-  </footer>
+  </footer>  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch('https://formsubmit.co/ajax/globalconceptgamji@gmail.com', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          document.getElementById('success').style.display = 'block';
+          form.reset();
+        } else {
+          alert('There was a problem sending your message. Please try again.');
+        }
+      })
+      .catch(error => alert('Error: ' + error));
     });
-  </script>
-</body>
-</html
+  </script></body>
+</html>
