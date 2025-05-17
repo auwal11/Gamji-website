@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      position: relative;
       background-image: url('IMG-20250517-WA0042.jpg');
       background-size: cover;
       background-position: center;
@@ -16,21 +17,35 @@
       scroll-behavior: smooth;
       color: #000;
     }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
     header {
       background-color: rgba(0, 51, 102, 0.9);
       padding: 20px;
       text-align: center;
       color: #fff;
     }
+
     header img {
       height: 80px;
       margin-bottom: 10px;
     }
+
     header h1, header p {
       margin: 0;
     }
+
     nav {
-      background: rgba(0, 34, 68, 0.9);
+      background: rgba(0, 34, 68, 0.95);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -40,19 +55,23 @@
       z-index: 1000;
       color: #fff;
     }
+
     nav .toggle {
       cursor: pointer;
       display: none;
     }
+
     nav .links {
       display: flex;
       gap: 15px;
     }
+
     nav a {
       color: #ffc600;
       text-decoration: none;
       font-weight: bold;
     }
+
     @media (max-width: 768px) {
       nav .toggle {
         display: block;
@@ -60,7 +79,7 @@
       nav .links {
         display: none;
         flex-direction: column;
-        background: rgba(0, 34, 68, 0.9);
+        background: rgba(0, 34, 68, 0.95);
         width: 100%;
         position: absolute;
         top: 60px;
@@ -70,19 +89,26 @@
         display: flex;
       }
     }
+
     main {
       padding: 20px;
     }
+
     section {
-      margin-bottom: 40px;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 20px;
+      margin-bottom: 30px;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 15px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
+
     h2 {
       color: #003366;
     }
+
     .form-section input,
     .form-section textarea,
     .form-section select,
@@ -94,25 +120,27 @@
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+
     .form-section button {
       background-color: #003366;
       color: gold;
       border: none;
       cursor: pointer;
     }
+
     .success-message {
       display: none;
       color: green;
       margin-top: 10px;
     }
+
     footer {
-      background: rgba(0, 51, 102, 0.9);
+      background: rgba(0, 51, 102, 0.95);
       color: gold;
       text-align: center;
       padding: 15px;
     }
-    
-    /* Slideshow styles */
+
     .slideshow-container {
       position: relative;
       max-width: 100%;
@@ -168,6 +196,8 @@
   </style>
 </head>
 <body>
+  <div class="overlay"></div>
+
   <header>
     <img src="logo.png" alt="Gamji Logo" />
     <h1>Gamji Global Concept</h1>
@@ -191,50 +221,42 @@
   <main>
     <section id="about">
       <h2>About Us</h2>
-      <p>Gamji Global Concept is a forward-thinking company delivering reliable services in telecommunications, digital identity, and financial exchange. Our strategic partnership with MTN Nigeria supports KYC verification, SIM activations, and NIN enrollment. Our Bureau de Change offers trustworthy and competitive foreign exchange services. We combine regulatory compliance, ethical standards, and innovation to serve customers across Nigeria and beyond.</p>
+      <p>Gamji Global Concept is a forward-thinking company delivering reliable services in telecommunications, digital identity, and financial exchange...</p>
     </section>
 
     <section id="services">
       <h2>Our Services</h2>
       <ul>
-        <li><strong>General SIM Solutions</strong> – SIM activations, swaps, upgrades, and troubleshooting.</li>
-        <li><strong>NIN Enrollment</strong> – Official biometric and data capture for national identity.</li>
-        <li><strong>KYC Onboarding</strong> – Verified identity checks in collaboration with MTN and Sidrachain.</li>
-        <li><strong>Bureau de Change</strong> – Trusted currency exchange for USD, EUR, GBP, CFA, etc.</li>
-        <li><strong>Closed User Group (CUG)</strong> – Discounted internal calling and data sharing for teams.</li>
-        <li><strong>Laptop & Accessories</strong> – Sales of branded laptops and essential computing tools.</li>
+        <li><strong>General SIM Solutions</strong></li>
+        <li><strong>NIN Enrollment</strong></li>
+        <li><strong>KYC Onboarding</strong></li>
+        <li><strong>Bureau de Change</strong></li>
+        <li><strong>Closed User Group (CUG)</strong></li>
+        <li><strong>Laptop & Accessories</strong></li>
       </ul>
     </section>
 
     <section id="vision">
       <h2>Our Vision</h2>
-      <p>To be a trusted leader in telecom, digital identity, and currency exchange solutions—connecting people and businesses through secure and innovative services.</p>
+      <p>To be a trusted leader in telecom, digital identity, and currency exchange solutions.</p>
     </section>
 
     <section id="mission">
       <h2>Our Mission</h2>
-      <p>We aim to deliver fast, secure, and reliable services that support connectivity, identity, and global commerce through partnerships, innovation, and exceptional customer satisfaction.</p>
+      <p>We aim to deliver fast, secure, and reliable services that support connectivity, identity, and global commerce...</p>
     </section>
 
     <section id="global">
       <h2>Global Presence</h2>
-      <p>While based in Nigeria, we maintain a global outlook, serving diaspora communities, travelers, and international partners through digital platforms and strategic alliances.</p>
+      <p>We serve diaspora communities, travelers, and international partners...</p>
     </section>
 
     <section id="gallery">
-      <h2>Our office</h2>
+      <h2>Our Office</h2>
       <div class="slideshow-container">
-        <div class="slide fade">
-          <img src="shop_outside.jpg" alt="Office Front">
-        </div>
-        <div class="slide fade">
-          <img src="inside_office.jpg" alt="Office Inside">
-        </div>
-        <div class="slide fade">
-          <img src=FB_IMG_1747083928097".jpg alt="Staff Team">
-        </div>
-
-        <!-- Navigation arrows -->
+        <div class="slide fade"><img src="shop_outside.jpg" alt="Office Front"></div>
+        <div class="slide fade"><img src="shop_inside.jpg" alt="Office Inside"></div>
+        <div class="slide fade"><img src="staff_team.jpg" alt="Staff Team"></div>
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
@@ -242,16 +264,11 @@
 
     <section id="location">
       <h2>Our Location</h2>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.543859844555!2d11.370705875047805!3d8.88893549110524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1051f1536b60073d%3A0x67254d0c5b2ea31b!2s50%20Palace%20Way%2C%20Jalingo%2C%20Taraba!5e0!3m2!1sen!2sng!4v1715969509027!5m2!1sen!2sng"
-        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
     </section>
 
     <section id="contact" class="form-section">
       <h2>Contact Us</h2>
-      <p>Fill out the form below and we'll get back to you shortly.</p>
       <form id="contactForm">
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="text" name="phone" placeholder="Phone Number" required>
@@ -265,7 +282,7 @@
         </select>
         <textarea name="message" placeholder="Your Message" rows="4"></textarea>
         <button type="submit">Send Message</button>
-        <p class="success-message" id="success">Message sent successfully! We will get back to you soon.</p>
+        <p class="success-message" id="success">Message sent successfully!</p>
       </form>
     </section>
   </main>
@@ -278,12 +295,10 @@
   </footer>
 
   <script>
-    // Navigation toggle for mobile
     document.querySelector('.toggle').addEventListener('click', function(){
       document.querySelector('nav').classList.toggle('active');
     });
 
-    // Contact form submission
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const form = e.target;
@@ -299,13 +314,12 @@
           document.getElementById('success').style.display = 'block';
           form.reset();
         } else {
-          alert('There was a problem sending your message. Please try again.');
+          alert('Error sending your message.');
         }
       })
       .catch(error => alert('Error: ' + error));
     });
 
-    // Slideshow code
     let slideIndex = 1;
     showSlides(slideIndex);
 
@@ -323,10 +337,9 @@
       slides[slideIndex - 1].style.display = "block";
     }
 
-    // Auto slide every 5 seconds
     setInterval(() => {
       plusSlides(1);
     }, 5000);
   </script>
 </body>
-          </html>
+  </html>
