@@ -6,9 +6,9 @@
   <title>Gamji Global Concept</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
@@ -16,23 +16,21 @@
       background-image: url('IMG-20250517-WA0042.jpg');
       background-size: cover;
       background-position: center;
-      color: #f5f5f5;
-      line-height: 1.5;
+      background-repeat: no-repeat;
+      color: #fff;
+      scroll-behavior: smooth;
     }
 
     .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       background: rgba(0, 0, 0, 0.7);
-      z-index: -1;
+      min-height: 100vh;
+      padding-bottom: 40px;
     }
 
     header {
       text-align: center;
-      padding: 30px 10px;
+      padding: 20px 10px;
+      background: rgba(0, 0, 0, 0.6);
     }
 
     header img {
@@ -42,8 +40,6 @@
 
     header h1 {
       font-size: 22px;
-      margin-bottom: 5px;
-      font-weight: 600;
     }
 
     header p {
@@ -54,83 +50,92 @@
     nav {
       background: rgba(0, 0, 0, 0.85);
       padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toggle {
+      display: none;
+      font-size: 20px;
+      color: gold;
+      background: #003366;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .links {
+      display: flex;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 15px;
     }
 
     nav a {
-      color: #ffda6b;
+      color: gold;
       text-decoration: none;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .toggle {
+        display: block;
+      }
+
+      .links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        margin-top: 10px;
+        padding: 10px 0;
+      }
+
+      nav.active .links {
+        display: flex;
+      }
+
+      nav a {
+        padding: 8px 20px;
+        font-size: 14px;
+      }
     }
 
     main {
-      max-width: 700px;
-      margin: auto;
-      padding: 30px 20px;
+      padding: 20px;
     }
 
     section {
-      background-color: rgba(255, 255, 255, 0.05);
-      margin-bottom: 20px;
-      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 30px;
     }
 
     h2 {
-      font-size: 16px;
+      color: gold;
+      font-size: 18px;
       margin-bottom: 10px;
-      color: #ffda6b;
     }
 
     p, li {
-      font-size: 13px;
+      font-size: 14px;
+      line-height: 1.6;
       color: #ddd;
     }
 
     ul {
-      padding-left: 18px;
-    }
-
-    .form-section input,
-    .form-section textarea,
-    .form-section select,
-    .form-section button {
-      width: 100%;
-      padding: 10px;
-      font-size: 13px;
-      margin-top: 8px;
-      margin-bottom: 10px;
-      background: #111;
-      color: #fff;
-      border: 1px solid #444;
-      border-radius: 5px;
-    }
-
-    .form-section button {
-      background: #ffda6b;
-      color: #000;
-      cursor: pointer;
-    }
-
-    .success-message {
-      font-size: 13px;
-      color: lightgreen;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: #ccc;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 15px 10px;
+      padding-left: 20px;
     }
 
     .slideshow-container {
       position: relative;
+      max-width: 100%;
+      margin: auto;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -142,145 +147,194 @@
     .slide img {
       width: 100%;
       height: auto;
-      display: block;
+      border-radius: 10px;
     }
 
     .prev, .next {
       cursor: pointer;
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
       padding: 10px;
       color: white;
       font-weight: bold;
       font-size: 20px;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.6);
+      user-select: none;
+      transform: translateY(-50%);
     }
 
     .next {
       right: 0;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 18px;
-      }
-      nav a {
-        font-size: 12px;
-      }
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.9);
+    }
+
+    .form-section input,
+    .form-section textarea,
+    .form-section select,
+    .form-section button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      font-size: 14px;
+    }
+
+    .form-section button {
+      background-color: gold;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 10px;
+      color: #00ff00;
+      font-size: 14px;
+    }
+
+    iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      color: gold;
+    }
+
+    footer a {
+      color: #ddd;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
+  <div class="overlay">
+    <header>
+      <img src="logo.png" alt="Gamji Logo" />
+      <h1>Gamji Global Concept</h1>
+      <p>Telecom, Identity & Financial Solutions</p>
+    </header>
 
-  <header>
-    <img src="logo.png" alt="Gamji Logo" />
-    <h1>Gamji Global Concept</h1>
-    <p>Telecom | Identity | Finance</p>
-  </header>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#vision">Vision</a>
-    <a href="#mission">Mission</a>
-    <a href="#global">Global</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#location">Location</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <main>
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We provide innovative services in telecom, digital ID and currency exchange. Trusted by customers across Nigeria and beyond.</p>
-    </section>
-
-    <section id="services">
-      <h2>Our Services</h2>
-      <ul>
-        <li>SIM Solutions</li>
-        <li>NIN Enrollment</li>
-        <li>KYC Onboarding</li>
-        <li>Bureau de Change</li>
-        <li>CUG Setup</li>
-        <li>Gadget Sales</li>
-      </ul>
-    </section>
-
-    <section id="vision">
-      <h2>Our Vision</h2>
-      <p>To be Africa's most reliable provider in telecom & digital solutions.</p>
-    </section>
-
-    <section id="mission">
-      <h2>Our Mission</h2>
-      <p>Deliver secure, fast and affordable services that simplify lives and grow communities.</p>
-    </section>
-
-    <section id="global">
-      <h2>Global Presence</h2>
-      <p>We work with diaspora clients, travelers and businesses around the world to offer accessible identity and exchange services.</p>
-    </section>
-
-    <section id="gallery">
-      <h2>Gallery</h2>
-      <div class="slideshow-container">
-        <div class="slide"><img src="shop_outside.jpg" alt="Office Front"></div>
-        <div class="slide"><img src="shop_inside.jpg" alt="Office Inside"></div>
-        <div class="slide"><img src="staff_team.jpg" alt="Staff Team"></div>
-        <span class="prev" onclick="plusSlides(-1)">&#10094;</span>
-        <span class="next" onclick="plusSlides(1)">&#10095;</span>
+    <nav>
+      <div class="toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰ Menu</div>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#vision">Vision</a>
+        <a href="#mission">Mission</a>
+        <a href="#global">Global</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
       </div>
-    </section>
+    </nav>
 
-    <section id="location">
-      <h2>Location</h2>
-      <p>No. 50 Palace Way, Jalingo, Taraba State</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="200" style="border:0;" allowfullscreen loading="lazy"></iframe>
-    </section>
+    <main>
+      <section id="about">
+        <h2>About Us</h2>
+        <p>Gamji Global Concept provides services in telecom, identity verification, and currency exchange. We're partners with MTN Nigeria for SIM/NIN/KYC, and also operate a trusted Bureau de Change.</p>
+      </section>
 
-    <section id="contact" class="form-section">
-      <h2>Contact Us</h2>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="text" name="phone" placeholder="Phone Number" required>
-        <input type="email" name="email" placeholder="Email">
-        <select name="inquiry">
-          <option>SIM Registration</option>
-          <option>NIN Enrollment</option>
-          <option>KYC Verification</option>
-          <option>Currency Exchange</option>
-          <option>Other</option>
-        </select>
-        <textarea name="message" rows="4" placeholder="Your Message"></textarea>
-        <button type="submit">Send</button>
-        <p class="success-message" id="success">Message sent!</p>
-      </form>
-    </section>
-  </main>
+      <section id="services">
+        <h2>Services</h2>
+        <ul>
+          <li>SIM Registration, Swap & Upgrade</li>
+          <li>NIN Enrollment</li>
+          <li>KYC Verification</li>
+          <li>Bureau de Change (USD, GBP, EUR, etc)</li>
+          <li>Closed User Group (CUG)</li>
+          <li>Laptop Sales & Accessories</li>
+        </ul>
+      </section>
 
-  <footer>
-    <p>Email: globalconceptgamji@gmail.com</p>
-    <p>Phone: +2348068955522, +2347045648248</p>
-    <p><a href="https://wa.me/2347045648248" style="color:#ffda6b;">WhatsApp Us</a></p>
-  </footer>
+      <section id="vision">
+        <h2>Our Vision</h2>
+        <p>To be a trusted leader in telecom, digital identity, and currency exchange services.</p>
+      </section>
+
+      <section id="mission">
+        <h2>Our Mission</h2>
+        <p>Deliver fast, secure, and reliable digital and financial solutions.</p>
+      </section>
+
+      <section id="global">
+        <h2>Global Presence</h2>
+        <p>We serve clients both locally and abroad through partnerships and digital platforms.</p>
+      </section>
+
+      <section id="gallery">
+        <h2>Our Office</h2>
+        <div class="slideshow-container">
+          <div class="slide fade"><img src="shop_outside.jpg" alt="Outside Shop"></div>
+          <div class="slide fade"><img src="shop_inside.jpg" alt="Inside Office"></div>
+          <div class="slide fade"><img src="staff_team.jpg" alt="Staff Team"></div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+      </section>
+
+      <section id="location">
+        <h2>Our Location</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.543859844555!2d11.3707!3d8.8889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1051f1536b60073d%3A0x67254d0c5b2ea31b!2s50%20Palace%20Way%2C%20Jalingo!5e0!3m2!1sen!2sng!4v1715969509027" height="250" loading="lazy"></iframe>
+      </section>
+
+      <section id="contact" class="form-section">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="text" name="phone" placeholder="Phone Number" required>
+          <input type="email" name="email" placeholder="Email Address">
+          <select name="inquiry">
+            <option value="sim-registration">SIM Registration</option>
+            <option value="nin-enrollment">NIN Enrollment</option>
+            <option value="kyc-verification">KYC Verification</option>
+            <option value="currency-exchange">Currency Exchange</option>
+            <option value="general-inquiry">General Inquiry</option>
+          </select>
+          <textarea name="message" placeholder="Your Message" rows="4"></textarea>
+          <button type="submit">Send Message</button>
+          <p class="success-message" id="success">Message sent successfully!</p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>Email: globalconceptgamji@gmail.com | Phone: +2348068955522, +2347045648248</p>
+      <p>Office: No. 50 Palace Way, Jalingo, Taraba State</p>
+      <p><a href="https://wa.me/2347045648248" target="_blank">Chat with us on WhatsApp</a></p>
+    </footer>
+  </div>
 
   <script>
-    // Slideshow Logic
+    // Toggle Menu
+    document.querySelector('.toggle').addEventListener('click', function () {
+      document.querySelector('nav').classList.toggle('active');
+    });
+
+    // Slideshow
     let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
+    showSlides();
+
     function showSlides() {
+      const slides = document.getElementsByClassName("slide");
       for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
       slideIndex++;
-      if (slideIndex > slides.length) slideIndex = 1;
+      if (slideIndex > slides.length) { slideIndex = 1 }
       slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 5000);
     }
-    setInterval(showSlides, 4000);
-    showSlides();
 
     function plusSlides(n) {
       slideIndex += n - 1;
@@ -288,22 +342,30 @@
     }
 
     // Form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
+
       fetch('https://formsubmit.co/ajax/globalconceptgamji@gmail.com', {
         method: 'POST',
         body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          document.getElementById('success').style.display = 'block';
-          form.reset();
-        } else {
-          alert('Message failed.');
+        headers: {
+          'Accept': 'application/json'
         }
-      }).catch(err => alert('Error: ' + err));
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.success === "true" || result.success === true) {
+            document.getElementById('success').style.display = 'block';
+            form.reset();
+          } else {
+            alert('Something went wrong. Please try again.');
+          }
+        })
+        .catch(error => {
+          alert('Error: ' + error);
+        });
     });
   </script>
 </body>
